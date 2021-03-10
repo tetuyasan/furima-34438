@@ -31,7 +31,7 @@
 | item_comment        | text         | null false        |
 | item_condition_id   | integer      | null false        |
 | item_send_id        | integer      | null false        |
-| shipping_charge_id | integer      | null false        |
+| shipping_charge_id  | integer      | null false        |
 | area_id             | integer      | null false        |
 
 ### association
@@ -41,9 +41,11 @@
 
 ## comment_table
 
-| column   | type   | option      |
-| =======  | =====  | ============|
-| text     | text   | null: false |
+| column   | type         | option            |
+| =======  | ============ | ================= |
+| text     | text         | null: false       |
+| user     | references   | foreign_key: true |
+| item     | references   | foreign_key: true |
 
 ### association
 * belongs_to :item
