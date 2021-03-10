@@ -1,4 +1,4 @@
-<mxfile host="65bd71144e" modified="2021-03-10T03:27:55.032Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="14.2.4" etag="ciMyug31WS65gVvpvdIX" type="embed">
+<mxfile host="65bd71144e" modified="2021-03-10T06:13:28.757Z" agent="5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" version="14.2.4" etag="mMIOE9QhXa-hQOgy9YDl" type="embed">
     <diagram id="oNd3YajlxqbernhCOQth" name="ページ1">
         <mxGraphModel dx="1500" dy="3480" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1400" math="0" shadow="0">
             <root>
@@ -7,7 +7,7 @@
                 <mxCell id="26" value="ユーザーテーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
                     <mxGeometry x="-497" y="-2107" width="330" height="180" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" value="　○名前&#10;&#10;　○メールアドレス&#10;&#10;　○パスワード&#10;&#10;　○誕生日" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="26">
+                <mxCell id="27" value="　○名前&#10;&#10;　○メールアドレス&#10;&#10;　○パスワード&#10;&#10;　○誕生日&#10;&#10;   ○ニックネーム" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="26">
                     <mxGeometry y="30" width="330" height="150" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" value="商品(items)テーブル" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="1">
@@ -25,11 +25,14 @@
                 <mxCell id="62" value="購入(親要素)" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;sketch=0;" vertex="1" parent="1">
                     <mxGeometry x="-655" y="-1661" width="218" height="171" as="geometry"/>
                 </mxCell>
-                <mxCell id="72" value="○テキスト&lt;br&gt;" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;fontSize=16;fontFamily=Verdana;" vertex="1" parent="62">
+                <mxCell id="72" value="○アイテム&lt;br&gt;○購入したユーザー" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;fontSize=16;fontFamily=Verdana;" vertex="1" parent="62">
                     <mxGeometry y="30" width="218" height="141" as="geometry"/>
                 </mxCell>
                 <mxCell id="64" value="購入者の住所(子要素)" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;sketch=0;verticalAlign=top;" vertex="1" parent="1">
                     <mxGeometry x="-276" y="-1661" width="223" height="174" as="geometry"/>
+                </mxCell>
+                <mxCell id="84" value="○購入者のカード情報&lt;br&gt;○購入者の住所" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontSize=16;fontFamily=Verdana;" vertex="1" parent="64">
+                    <mxGeometry y="30" width="223" height="144" as="geometry"/>
                 </mxCell>
                 <mxCell id="67" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;align=center;labelPosition=center;verticalLabelPosition=middle;verticalAlign=middle;fontStyle=1" edge="1" parent="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
@@ -60,9 +63,6 @@
                         <mxPoint x="-286" y="-1576" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
-                </mxCell>
-                <mxCell id="76" value="○テキスト&lt;br&gt;" style="text;html=1;align=left;verticalAlign=top;resizable=0;points=[];autosize=1;fontSize=16;fontFamily=Verdana;" vertex="1" parent="1">
-                    <mxGeometry x="-240" y="-1597" width="89" height="23" as="geometry"/>
                 </mxCell>
                 <mxCell id="80" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERone;endFill=1;align=center;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=1.018;entryY=0.106;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="33" target="72">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
