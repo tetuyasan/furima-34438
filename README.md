@@ -4,13 +4,14 @@
 
 ## User_table
 
-| column     | type   | option      |
-| ========== |======= | =========== |
-| nickname   | string | null  false |
-| name       | string | null: false |
-| email      | string | null: false |
-| pass_Word  | string | null: false |
-| birthday   | string | null: false |
+| column              | type   | option      |
+| =================== |======= | =========== |
+| nickname            | string | null: false |
+| first_name          | string | null: false |
+| family_name         | string | null: false |
+| email               | string | unique:true |
+| encrypted_password  | string | null: false |
+| data                | string | null: false |
 
 ### association
 * has_many :items
@@ -20,12 +21,13 @@
 
 | column        | type         | option            |
 | ============  | ============ | ================= |
-| item_price    | string       | null false        |
+| item_price    | text         | null false        |
 | item_name     | string       | null false        |
 | user          | references   | foreign_key: true |
 | item_category | string       | null false        |
 | item_comment  | text         | null false        |
 | item_condition| string       | null false        |
+| area          | string       | null false        |
 
 ### association
 * belongs_to :user
