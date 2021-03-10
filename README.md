@@ -4,16 +4,16 @@
 
 ## user_table
 
-| column              | type   | option      |
-| =================== |======= | =========== |
-| nickname            | string | null: false |
-| first_name          | string | null: false |
-| first_name_kana     | string | null: false |
-| family_name         | string | null: false |
-| family_name_kana    | string | null: false |
-| email               | string | unique:true |
-| encrypted_password  | string | null: false |
-| birthday            | data   | null: false |
+| column              | type   | option                 |
+| =================== |======= | ====================== |
+| nickname            | string | null: false            |
+| first_name          | string | null: false            |
+| first_name_kana     | string | null: false            |
+| family_name         | string | null: false            |
+| family_name_kana    | string | null: false            |
+| email               | string | unique:true null:false |
+| encrypted_password  | string | null: false            |
+| birthday            | data   | null: false            |
 
 ### association
 * has_many :items
@@ -31,12 +31,12 @@
 | item_comment        | text         | null false        |
 | item_condition_id   | integer      | null false        |
 | item_send_id        | integer      | null false        |
-| shipping_charges_id | integer      | null false        |
+| shipping_charge_id | integer      | null false        |
 | area_id             | integer      | null false        |
 
 ### association
 * has_one :buy
-* has_many :users
+* belongs_to :user
 
 
 ## comment_table
@@ -58,8 +58,8 @@
 
 ### association
 has_one :send
-has_one :user
-has_one :item
+belongs_to :user
+belongs_to :item
 
 ## send_table (子)
 
