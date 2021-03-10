@@ -2,7 +2,7 @@
 ## フリマ34438のDB設計書
 
 
-## User_table
+## user_table
 
 | column              | type   | option      |
 | =================== |======= | =========== |
@@ -18,7 +18,7 @@
 ### association
 * has_many :items
 * has_many :comments
-* has_many :buy
+* has_many :buys
 
 ## item_table (住所やカード番号といった個人情報などは書かない！)
 
@@ -36,6 +36,7 @@
 
 ### association
 * has_one :buy
+* has_many :users
 
 
 ## comment_table
@@ -57,18 +58,20 @@
 
 ### association
 has_one :send
+has_one :user
+has_one :item
 
 ## send_table (子)
 
-| column        | type         | option             |
-| ============= | ============ | ================== |
-| area_id       | string       | null false         |
-| post_number   | string       | null false         |
-| city          | string       | null false         |
-| address       | string       | null false         |
-| building      | string       |                    |
-| phone_number  | string       | null false         |
-| buy           | references   | foreign_key: true  |
+| column        | type           | option             |
+| ============= | ============== | ================== |
+| area_id       | integer        | null false         |
+| post_number   | string         | null false         |
+| city          | string         | null false         |
+| address       | string         | null false         |
+| building      | string         |                    |
+| phone_number  | string         | null false         |
+| buy           | references     | foreign_key: true  |
 
 ### association
 belongs_to : buy
