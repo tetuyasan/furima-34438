@@ -97,8 +97,8 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
-    it 'passwordは6文字以上でなければ登録できない' do
-      @user.password = 'aaaaa'
+    it 'passwordは英数字混合の5文字以下でないと登録では登録できない' do
+      @user.password = 'aa111'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
@@ -114,7 +114,7 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
     end
     it 'passwordは数字のみでは登録できない' do
-      @user.password = '1234'
+      @user.password = '123456'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password には英字と数字の両方を含めて設定してください")
     end
