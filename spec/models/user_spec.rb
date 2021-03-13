@@ -60,10 +60,30 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Family name kana can't be blank")
     end
+    it '苗字の振り仮名が半角だと登録できない' do
+      @user.family_name_kana = 'ｷｼﾉ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name kana is invalid")
+    end
+    it '苗字の振り仮がカタカナ以外の全角だと登録できない' do
+      @user.family_name_kana = 'きしの'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name kana is invalid")
+    end
     it '名前の振り仮名が空では登録できない' do
       @user.first_name_kana = ''
       @user.valid?
       expect(@user.errors.full_messages).to include("First name kana can't be blank")
+    end
+    it '名前の振り仮名が半角だと登録できない' do
+      @user.first_name_kana = 'ﾃﾂﾔ'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana is invalid")
+    end
+    it '名前の振り仮がカタカナ以外の全角だと登録できない' do
+      @user.family_name_kana = 'てつや'
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Family name kana is invalid")
     end
     it 'nicknameが空では登録できない' do
       @user.nickname = ''
@@ -97,7 +117,7 @@ RSpec.describe User, type: :model do
       @user.valid?
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
-    it 'passwordは英数字混合の5文字以下でないと登録では登録できない' do
+    it 'passwordは5文字以下だと登録できない' do
       @user.password = 'aa111'
       @user.valid?
       expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
