@@ -35,24 +35,24 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it '商品の状態のidが1の時は登録できない' do
-        @item.condition_id = ''
+        @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition is not a number")
+        expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
       it '発送料の負担のidが1の時は登録できない'do 
-        @item.shipping_id = ''
+        @item.shipping_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping is not a number")
+        expect(@item.errors.full_messages).to include("Shipping must be other than 1")
       end
       it '発送元の地域のidが1の時は登録できない' do
-        @item.area_id = ''
+        @item.area_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area is not a number")
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
       end
       it '発送までの日数のidが1の時は登録できない'do
-        @item.shipping_charge_id = ''
+        @item.shipping_charge_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Shipping charge is not a number")
+        expect(@item.errors.full_messages).to include("Shipping charge must be other than 1")
       end
       it '販売価格が空だと登録できない' do
         @item.item_price = ''
