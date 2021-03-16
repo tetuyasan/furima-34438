@@ -15,13 +15,13 @@ class Item < ApplicationRecord
     validates :item_name
     validates :comment
     validates :item_price
+    validates :area_id 
   end
 
   with_options numericality: { other_than: 1 } do
     validates :category_id
     validates :condition_id
     validates :shipping_charge_id
-    validates :area_id 
     validates :shipping_id
   end
 
