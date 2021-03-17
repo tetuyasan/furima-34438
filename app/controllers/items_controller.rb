@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
   end
 
         #def destroy
@@ -21,11 +20,9 @@ class ItemsController < ApplicationController
         # end
 
   def edit
-     @items = Item.find(params[:id])
   end
 
   def update
-    @item = Item.find(params[:id])
     @item.update(item_params)
     if @item.save
       redirect_to root_path
@@ -50,7 +47,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root_path
-    unless user_signed_in? && current_user.id == @item.user_id
+    unless current_user.id == @item.user_id
       redirect_to action: :index
     end
   end
