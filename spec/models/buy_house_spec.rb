@@ -30,6 +30,11 @@ RSpec.describe BuyHouse, type: :model do
       @buyhouse.valid?
       expect(@buyhouse.errors.full_messages).to include("Post number is invalid")
     end
+    it '発送元の地域のidが1の時は登録できない' do
+      @item.area_id = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Area must be other than 1")
+    end
     it '市区町村が空だと登録できない' do
       @buyhouse.city = ''
       @buyhouse.valid?
