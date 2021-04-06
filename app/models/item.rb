@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :shipping
   belongs_to :user
+  has_one :buy
 
   has_one_attached :image
 
@@ -15,7 +16,6 @@ class Item < ApplicationRecord
     validates :item_name
     validates :comment
     validates :item_price
-    validates :area_id 
   end
 
   with_options numericality: { other_than: 1 } do
@@ -23,6 +23,7 @@ class Item < ApplicationRecord
     validates :condition_id
     validates :shipping_charge_id
     validates :shipping_id
+    validates :area_id
   end
 
   validates_inclusion_of :item_price, in: 300..9999999, message: 'Out of setting range'

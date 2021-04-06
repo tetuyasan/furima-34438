@@ -48,7 +48,7 @@ class ItemsController < ApplicationController
   end
 
   def move_to_root_path
-    unless current_user.id == @item.user_id
+    if current_user.id != @item.user_id || @item.buy != nil
       redirect_to action: :index
     end
   end
