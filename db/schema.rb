@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 2021_03_21_104401) do
     t.index ["user_id"], name: "index_buys_on_user_id"
   end
 
+  create_table "houses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "area_id", null: false
+    t.string "post_number", default: "", null: false
+    t.string "city", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "building"
+    t.string "phone_number", default: "", null: false
+    t.bigint "buy_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["buy_id"], name: "index_houses_on_buy_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "item_price", null: false
     t.string "item_name", default: "", null: false
@@ -55,19 +68,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_104401) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
-  end
-
-  create_table "sends", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "area_id", null: false
-    t.string "post_number", default: "", null: false
-    t.string "city", default: "", null: false
-    t.string "address", default: "", null: false
-    t.string "building"
-    t.string "phone_number", default: "", null: false
-    t.bigint "buy_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["buy_id"], name: "index_sends_on_buy_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -91,6 +91,6 @@ ActiveRecord::Schema.define(version: 2021_03_21_104401) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "buys", "items"
   add_foreign_key "buys", "users"
+  add_foreign_key "houses", "buys"
   add_foreign_key "items", "users"
-  add_foreign_key "sends", "buys"
 end

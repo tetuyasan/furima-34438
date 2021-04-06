@@ -1,6 +1,6 @@
-class CreateSends < ActiveRecord::Migration[6.0]
+class CreateHouses < ActiveRecord::Migration[6.0]
   def change
-    create_table :sends do |t|
+    create_table :houses do |t|
       t.integer :area_id,           null: false
       t.string :post_number,        null: false, default: ""
       t.string :city,               null: false, default: ""

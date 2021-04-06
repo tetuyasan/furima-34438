@@ -63,7 +63,7 @@ has_one :send
 belongs_to :user
 belongs_to :item
 
-## send_table (子)
+## house_table (子)
 
 | column        | type           | option             |
 | ============= | ============== | ================== |
