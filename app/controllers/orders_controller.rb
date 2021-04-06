@@ -5,11 +5,9 @@ class OrdersController < ApplicationController
 
   def index
     @buyhouse = BuyHouse.new
-    @item = Item.find(params[:item_id])
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buyhouse = BuyHouse.new(buyhouse_params)
     if @buyhouse.valid?
       pay_item

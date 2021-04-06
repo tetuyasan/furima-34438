@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :buy_send do
+  factory :buy_house do
     post_number { '123-4567' }
     area_id {34}
     city { '広島市' }
