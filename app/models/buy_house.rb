@@ -3,7 +3,6 @@ class BuyHouse
   attr_accessor :post_number, :area_id, :city, :address, :building, :phone_number, :user_id, :token, :item_id
 
   with_options presence: true do
-    validates :area_id
     validates :city
     validates :address
     validates :token
@@ -12,6 +11,10 @@ class BuyHouse
     validates :phone_number, length: { maximum: 11}
     validates :phone_number, numericality:true
     validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
+  end
+
+  with_options numericality: { other_than: 1 } do
+    validates :area_id
   end
 
   def save

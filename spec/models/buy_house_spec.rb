@@ -45,8 +45,8 @@ RSpec.describe BuyHouse, type: :model do
       @buyhouse.valid?
       expect(@buyhouse.errors.full_messages).to include("Phone number can't be blank")
     end
-    it '電話番号が11桁以上だと購入できない' do
-      @buyhouse.phone_number = "090123456789"
+    it '電話番号が11桁を超えると購入できない' do
+      @buyhouse.phone_number = "0901234567890"
       @buyhouse.valid?
       expect(@buyhouse.errors.full_messages).to include("Phone number is too long (maximum is 11 characters)")
     end
@@ -64,6 +64,16 @@ RSpec.describe BuyHouse, type: :model do
       @buyhouse.token = nil
       @buyhouse.valid?
       expect(@buyhouse.errors.full_messages).to include("Token can't be blank")
+    end
+    it "user_idが空では購入できない" do
+      @buyhouse.user_id = nil
+      @buyhouse.valid?
+      expect(@buyhouse.errors.full_messages).to include("User can't be blank")
+    end
+    it "item_idが空では購入できない" do
+      @buyhouse.item_id = nil
+      @buyhouse.valid?
+      expect(@buyhouse.errors.full_messages).to include("Item can't be blank")
     end
    end
   end
