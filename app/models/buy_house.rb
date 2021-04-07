@@ -9,9 +9,10 @@ class BuyHouse
     validates :user_id
     validates :item_id
     validates :phone_number, length: { maximum: 11}
-    validates :phone_number, numericality:true
     validates :post_number, format: {with: /\A[0-9]{3}-[0-9]{4}\z/}
   end
+
+    validates :phone_number, numericality:true
 
   with_options numericality: { other_than: 1 } do
     validates :area_id
