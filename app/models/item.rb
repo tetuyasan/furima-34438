@@ -26,7 +26,7 @@ class Item < ApplicationRecord
     validates :area_id
   end
 
-  validates_inclusion_of :item_price, in: 300..9999999, message: 'Out of setting range'
+  validates_inclusion_of :item_price, in: 300..9999999, message: 'は300円から9999999円までにしてください'
 
-  validates :item_price, numericality: { with: /\A[0-9]+\z/ ,message: 'Half-width number'}
+  validates :item_price, numericality: { with: /\A[0-9]+\z/ ,message: 'は半角の数字にしてください'}
 end
